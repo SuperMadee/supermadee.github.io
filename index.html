@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engr. Ma. Madecheen S. Pangaliman, MSc</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #3b2f2f;
+      background: #fdf8f3;
+    }
+
+    a { color: #8b4513; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e5d9cc;
+    }
+    .header-photo {
+      width: 160px;
+      min-width: 160px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .header-photo img {
+      width: 100%;
+      display: block;
+      border-radius: 6px;
+    }
+    .header-photo-fallback {
+      width: 160px; height: 180px;
+      background: #ede3d8;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px; color: #a07858;
+    }
+    .header-info h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2b1d1d;
+      margin-bottom: 4px;
+    }
+    .header-info .header-email {
+      font-size: 14px;
+      color: #6b5040;
+      margin-bottom: 0.4rem;
+    }
+    .header-info .bio {
+      font-size: 15px;
+      color: #4a3728;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .header-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 0.75rem;
+    }
+    .header-links a {
+      font-size: 13px;
+      padding: 4px 12px;
+      border: 1px solid #a0714f;
+      border-radius: 4px;
+      color: #8b4513;
+    }
+    .header-links a:hover { background: #f5ece3; text-decoration: none; }
+
+    /* SECTION */
+    section { margin-bottom: 2.25rem; }
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2b1d1d;
+      border-bottom: 2px solid #e0cfc0;
+      padding-bottom: 6px;
+      margin-bottom: 1.1rem;
+    }
+
+    /* ENTRY WITH LOGO */
+    .entry {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .entry-logo {
+      width: 48px;
+      min-width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .entry-logo img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+    .entry-logo .logo-fallback {
+      width: 44px; height: 44px;
+      background: #ede3d8;
+      border: 1px solid #d4bfaa;
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: #8b6347;
+      text-align: center; line-height: 1.2;
+    }
+    .entry-body { flex: 1; }
+    .entry-title { font-weight: 700; color: #2b1d1d; font-size: 15px; }
+    .entry-sub { color: #6b5040; font-size: 14px; }
+    .entry-date { color: #9e7d65; font-size: 13px; }
+
+    /* PUBLICATIONS */
+    .pub { margin-bottom: 1.1rem; padding-bottom: 1.1rem; border-bottom: 1px solid #eaddd0; }
+    .pub:last-child { border-bottom: none; margin-bottom: 0; }
+    .pub-title { font-weight: 700; color: #2b1d1d; font-size: 15px; line-height: 1.5; margin-bottom: 3px; }
+    .pub-authors { font-size: 14px; color: #6b5040; margin-bottom: 2px; }
+    .pub-authors strong { color: #2b1d1d; }
+    .pub-venue { font-size: 14px; color: #7a5c45; font-style: italic; margin-bottom: 5px; }
+    .pub-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .pub-links a {
+      font-size: 13px;
+      color: #8b4513;
+      padding: 1px 8px;
+      border: 1px solid #a0714f;
+      border-radius: 3px;
+    }
+    .pub-links a:hover { background: #f5ece3; text-decoration: none; }
+    .pub-badge {
+      font-size: 12px;
+      background: #f5e6d3;
+      color: #7a4020;
+      padding: 1px 8px;
+      border-radius: 3px;
+      font-weight: 700;
+    }
+
+    /* RECOGNITIONS & ACTIVITIES */
+    .list-entry {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+      font-size: 14px;
+    }
+    .list-entry::before {
+      content: '•';
+      color: #a0714f;
+      font-size: 16px;
+      line-height: 1.5;
+      flex-shrink: 0;
+    }
+    .list-entry strong { color: #2b1d1d; }
+
+    /* COURSES */
+    .course-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 2rem;
+    }
+    .course-list li {
+      font-size: 14px;
+      color: #4a3728;
+      list-style: none;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .course-list li::before {
+      content: '›';
+      color: #a0714f;
+      position: absolute; left: 0;
+    }
+
+    /* TAGS (research interests) */
+    .interest-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
+    .interest-tag {
+      font-size: 13px;
+      padding: 3px 10px;
+      border-radius: 3px;
+      background: #f0e6d8;
+      color: #7a4020;
+      border: 1px solid #d4b89a;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #e5d9cc;
+      font-size: 13px;
+      color: #9e7d65;
+    }
+
+    @media (max-width: 600px) {
+      .header { flex-direction: column; gap: 1.25rem; }
+      .header-photo { width: 120px; min-width: 120px; }
+      .course-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-photo">
+      <img src="profile.jpg" alt="Engr. Ma. Madecheen S. Pangaliman"
+        onerror="this.parentElement.innerHTML='<div class=\'header-photo-fallback\'>👩‍🏫</div>'" />
+    </div>
+    <div class="header-info">
+      <h1>Engr. Ma. Madecheen S. Pangaliman, MSc</h1>
+      <p class="header-email">Faculty (on study leave), Dept. of Electronics Engineering, <a href="https://www.ust.edu.ph/profile/pangaliman-ma-madecheen-s/" target="_blank">University of Santo Tomas</a></p>
+      <p class="header-email">PhD Student, <a href="https://eee.upd.edu.ph/" target="_blank">University of the Philippines Diliman</a></p>
+      <p class="bio">
+        I am an electronics engineering educator and researcher at the University of Santo Tomas, currently on study leave from UST to pursue a Doctor of Philosophy in Electrical and Electronics Engineering at the University of the Philippines Diliman under the <a href="https://erdt.engineering.upd.edu.ph/" target="_blank">ERDT Scholarship Program</a>. My research centers on machine learning, deep learning, and computational intelligence for intelligent robotic systems — developing adaptive, AI-driven models that enhance robotic autonomy, perception, and decision-making.
+      </p>
+      <p class="header-email">📧 UST: <a href="/cdn-cgi/l/email-protection#b8d5cbc8d9d6dfd9d4d1d5d9d6f8cdcbcc96dddccd96c8d0"><span class="__cf_email__" data-cfemail="cfa2bcbfaea1a8aea3a6a2aea18fbabcbbe1aaabbae1bfa7">[email&#160;protected]</span></a></p>
+      <p class="header-email">📧 UP: <a href="/cdn-cgi/l/email-protection#d4b9a7a4b5bab3b5b8bdb9b5ba94a1a4fab1b0a1faa4bc"><span class="__cf_email__" data-cfemail="0f627c7f6e61686e6366626e614f7a7f216a6b7a217f67">[email&#160;protected]</span></a> &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#167b77387b777273757e7373783866777871777a7f7b777856737373386366723873726338667e"><span class="__cf_email__" data-cfemail="0865692665696c6d6b606d6d66267869666f696461656966486d6d6d267d786c266d6c7d267860">[email&#160;protected]</span></a></p>
+      <div class="header-links" style="display:flex;gap:14px;align-items:center;margin-top:0.75rem;flex-wrap:wrap;">
+        <a href="https://scholar.google.com/citations?user=O4tPV6gAAAAJ&hl=en" target="_blank" title="Google Scholar" style="border:none;padding:0;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" style="height:32px;width:32px;object-fit:contain;display:block;" />
+        </a>
+        <a href="https://orcid.org/0009-0003-2200-634X" target="_blank" title="ORCID" style="border:none;padding:0;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" style="height:32px;width:32px;object-fit:contain;display:block;" />
+        </a>
+        <a href="https://www.ust.edu.ph/profile/pangaliman-ma-madecheen-s/" target="_blank" title="UST Profile" style="border:none;padding:0;">
+          <img src="https://www.google.com/s2/favicons?domain=ust.edu.ph&sz=64" alt="UST" style="height:32px;width:32px;object-fit:contain;display:block;border-radius:4px;" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESEARCH INTERESTS -->
+  <section>
+    <h2>Research Interests</h2>
+    <div class="interest-tags">
+      <span class="interest-tag">Artificial Intelligence</span>
+      <span class="interest-tag">Robotics Technology</span>
+      <span class="interest-tag">Machine Learning</span>
+      <span class="interest-tag">Deep Learning</span>
+      <span class="interest-tag">Computational Intelligence</span>
+      <span class="interest-tag">Databases &amp; Data Analysis</span>
+      <span class="interest-tag">Algorithms &amp; Software Engineering</span>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <h2>Education</h2>
+
+    <div class="entry">
+      <div class="entry-logo">
+        <img src="https://www.google.com/s2/favicons?domain=upd.edu.ph&sz=64" alt="UP Diliman"
+          onerror="this.outerHTML='<div class=\'logo-fallback\'>UP</div>'" />
+      </div>
+      <div class="entry-body">
+        <p class="entry-title"><a href="https://upd.edu.ph/" target="_blank">University of the Philippines Diliman</a></p>
+        <p class="entry-sub">Doctor of Philosophy in Electrical and Electronics Engineering <em>(ongoing)</em></p>
+        <p class="entry-sub">ERDT Scholar &nbsp;·&nbsp; Quezon City, Philippines</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-logo">
+        <img src="https://www.google.com/s2/favicons?domain=mapua.edu.ph&sz=64" alt="Mapúa University"
+          onerror="this.outerHTML='<div class=\'logo-fallback\'>MU</div>'" />
+      </div>
+      <div class="entry-body">
+        <p class="entry-title"><a href="https://www.mapua.edu.ph/" target="_blank">Mapúa University</a></p>
+        <p class="entry-sub">Master of Science in Electronics Engineering</p>
+        <p class="entry-sub">Manila, Philippines</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-logo">
+        <img src="https://www.google.com/s2/favicons?domain=pup.edu.ph&sz=64" alt="PUP"
+          onerror="this.outerHTML='<div class=\'logo-fallback\'>PUP</div>'" />
+      </div>
+      <div class="entry-body">
+        <p class="entry-title"><a href="https://www.pup.edu.ph/" target="_blank">Polytechnic University of the Philippines</a></p>
+        <p class="entry-sub">Bachelor of Science in Electronics Engineering &nbsp;·&nbsp; <strong>Cum Laude</strong> (2016)</p>
+        <p class="entry-sub">Manila, Philippines</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section>
+    <h2>Publications &amp; Presentations</h2>
+
+    <div class="pub">
+      <p class="pub-title">Pestaway: A Pest Management Chatbot with Integrated Speech Capability</p>
+      <p class="pub-authors">R. H. C. D. Cruz, J. C. C. Aguarin, N. C. P. Ling, M. S. Magsaysay, J. B. C. Villanueva, <strong>M. M. S. Pangaliman</strong> et al.</p>
+      <p class="pub-venue">TENCON 2025 — IEEE Region 10 Conference, pp. 1461–1465</p>
+      <div class="pub-links"><span class="pub-badge">2025</span></div>
+    </div>
+
+    <div class="pub">
+      <p class="pub-title">TigerNav: Development of a Virtual Assistant Using an Autoregressive Model for Indoor Navigation</p>
+      <p class="pub-authors">R. A. N. San Juan, E. J. Q. Baetiong, S. J. Bantayao, M. J. M. Mangali, C. K. P. Sumo, <strong>M. M. S. Pangaliman</strong> et al.</p>
+      <p class="pub-venue">TENCON 2025 — IEEE Region 10 Conference, pp. 1456–1460</p>
+      <div class="pub-links"><span class="pub-badge">2025</span></div>
+    </div>
+
+    <div class="pub">
+      <p class="pub-title">Development of an IMU-sEMG System for Hamstring Analysis in Static Movement Protocols</p>
+      <p class="pub-authors">M. J. M. Espino, K. M. C. Mercado, J. J. D. Del Mundo, C. M. S. Estrada, A. S. A. Gilla, <strong>M. M. S. Pangaliman</strong> et al.</p>
+      <p class="pub-venue">TENCON 2025 — IEEE Region 10 Conference, pp. 743–747</p>
+      <div class="pub-links"><span class="pub-badge">2025</span></div>
+    </div>
+
+    <div class="pub">
+      <p class="pub-title">Philippine Lime (Calamansi) Disease Detection and Classification Using YOLOv8 Model</p>
+      <p class="pub-authors"><strong>M. M. S. Pangaliman</strong>, K. M. Manalo, P. C. Naval</p>
+      <p class="pub-venue">Recent Challenges in Intelligent Information and Database Systems, Vol. 2145, pp. 106–117</p>
+      <div class="pub-links"><span class="pub-badge">2024</span><span style="font-size:13px;color:#888;">Cited by 2</span></div>
+    </div>
+
+    <div class="pub">
+      <p class="pub-title">Mitigation of Noise on Surface Electromyography (sEMG) Signals through Signal Filtering Algorithms</p>
+      <p class="pub-authors">D. V. Cunanan, R. R. B. Magpantay, J. A. M. Roxas, J. E. P. H. Sandoval, A. R. P. Tagura, <strong>M. M. S. Pangaliman</strong> et al.</p>
+      <p class="pub-venue">TENCON 2024 — IEEE Region 10 Conference, pp. 715–718</p>
+      <div class="pub-links"><span class="pub-badge">2024</span><span style="font-size:13px;color:#888;">Cited by 1</span></div>
+    </div>
+
+    <div class="pub">
+      <p class="pub-title">Hamstring Muscle Activity Characterization Using IMU and sEMG Sensors During Leg Squats</p>
+      <p class="pub-authors">S. R. M. Orianza, B. M. Dimaano, J. J. Y. Oliva, J. M. F. Santiago, M. K. G. Torre, <strong>M. M. S. Pangaliman</strong> et al.</p>
+      <p class="pub-venue">TENCON 2024 — IEEE Region 10 Conference, pp. 567–570</p>
+      <div class="pub-links"><span class="pub-badge">2024</span><span style="font-size:13px;color:#888;">Cited by 1</span></div>
+    </div>
+
+    <div class="pub">
+      <p class="pub-title">Mitigating Drift in Extraction of Joint Angle Measurements from Inertial Measurement Unit (IMU) Data</p>
+      <p class="pub-authors">J. R. A. Castillo, N. K. I. De Guzman, J. M. Jacinto, J. M. M. Romero, G. A. P. Sales, <strong>M. M. S. Pangaliman</strong> et al.</p>
+      <p class="pub-venue">TENCON 2024 — IEEE Region 10 Conference, pp. 666–669</p>
+      <div class="pub-links"><span class="pub-badge">2024</span><span style="font-size:13px;color:#888;">Cited by 1</span></div>
+    </div>
+
+    <div class="pub">
+      <p class="pub-title">ML-Based Classification of Hamstring Strain Injury from Nonlinear Features of Surface Electromyography Signals</p>
+      <p class="pub-authors">G. A. A. Calumpang, M. C. S. Lazatin, M. D. Mendoza, K. T. Ruiz, L. M. A. Vivero, <strong>M. M. S. Pangaliman</strong> et al.</p>
+      <p class="pub-venue">TENCON 2024 — IEEE Region 10 Conference, pp. 711–714</p>
+      <div class="pub-links"><span class="pub-badge">2024</span><span style="font-size:13px;color:#888;">Cited by 1</span></div>
+    </div>
+
+    <div class="pub">
+      <p class="pub-title">Improvement of Trajectory Errors on Remote-Controlled Differential Drive Robot via Mobile-based GUI through Bluetooth Connection</p>
+      <p class="pub-authors">Y. D. Dimalanta, B. Ching, L. M. Dalangin, A. A. Respicio, M. A. Topacio, <strong>M. M. S. Pangaliman</strong> et al.</p>
+      <p class="pub-venue">2023 19th IEEE International Colloquium on Signal Processing &amp; Its Applications (CSPA), Kedah, Malaysia, pp. 128–133</p>
+      <div class="pub-links"><span class="pub-badge">2023</span><a href="https://doi.org/10.1109/CSPA57446.2023.10087757" target="_blank">DOI</a></div>
+    </div>
+
+    <div class="pub">
+      <p class="pub-title">Characterization and Optimization of Trajectory Errors on Remote-Controlled Differential Drive Robot through Speed Calibration</p>
+      <p class="pub-authors">Y. D. Dimalanta, <strong>M. M. Pangaliman</strong>, L. M. Dalangin, B. Ching, A. Respicio et al.</p>
+      <p class="pub-venue">2022 IEEE 14th International Conference on HNICEM, Boracay Island, Philippines, pp. 1–6</p>
+      <div class="pub-links"><span class="pub-badge">2022</span><a href="https://doi.org/10.1109/HNICEM57413.2022.10109467" target="_blank">DOI</a><span style="font-size:13px;color:#888;">Cited by 2</span></div>
+    </div>
+
+    <div class="pub">
+      <p class="pub-title">Comparative Analysis of Different Systematic Odometry Error Correction Methods on a Differential Drive Indoor Service Robot</p>
+      <p class="pub-authors"><strong>M. M. Pangaliman</strong>, S. J. Dignadice, K. A. Felicilda, A. J. Bautista, A. Perol et al.</p>
+      <p class="pub-venue">2022 IEEE 14th International Conference on HNICEM, Boracay Island, Philippines, pp. 1–6</p>
+      <div class="pub-links"><span class="pub-badge">2022</span><a href="https://doi.org/10.1109/HNICEM57413.2022.10109446" target="_blank">DOI</a></div>
+    </div>
+
+    <div class="pub">
+      <p class="pub-title">Development of Improved Acoustic Disdrometer through Utilization of Machine Learning Algorithm</p>
+      <p class="pub-authors">F. R. G. Cruz, <strong>M. M. S. Pangaliman</strong>, T. M. Amado, F. A. A. Uy</p>
+      <p class="pub-venue">TENCON 2018 — IEEE Region 10 Conference, pp. 1679–1682</p>
+      <div class="pub-links"><span class="pub-badge">2018</span><span style="font-size:13px;color:#888;">Cited by 7</span></div>
+    </div>
+
+    <div class="pub">
+      <p class="pub-title">Machine Learning Predictive Models for Improved Acoustic Disdrometer</p>
+      <p class="pub-authors"><strong>M. M. S. Pangaliman</strong>, F. R. G. Cruz, T. M. Amado</p>
+      <p class="pub-venue">2018 IEEE 10th International Conference on Humanoid, Nanotechnology, Information Technology, Communication and Control, Environment, and Management (HNICEM)</p>
+      <div class="pub-links"><span class="pub-badge">2018</span><span style="font-size:13px;color:#888;">Cited by 16</span></div>
+    </div>
+
+  </section>
+
+  <!-- TEACHING -->
+  <section>
+    <h2>Teaching</h2>
+
+    <div class="entry">
+      <div class="entry-logo">
+        <img src="https://www.google.com/s2/favicons?domain=ust.edu.ph&sz=64" alt="UST"
+          onerror="this.outerHTML='<div class=\'logo-fallback\'>UST</div>'" />
+      </div>
+      <div class="entry-body">
+        <p class="entry-title"><a href="https://www.ust.edu.ph/" target="_blank">University of Santo Tomas</a> — Faculty</p>
+        <p class="entry-sub">Department of Electronics Engineering, Faculty of Engineering</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROFESSIONAL ACTIVITIES -->
+  <section>
+    <h2>Professional Activities</h2>
+
+    <div class="entry">
+      <div class="entry-logo">
+        <img src="https://www.google.com/s2/favicons?domain=ieee.org&sz=64" alt="IEEE"
+          onerror="this.outerHTML='<div class=\'logo-fallback\'>IEEE</div>'" />
+      </div>
+      <div class="entry-body">
+        <p class="entry-title"><a href="https://wie.ieee.org/" target="_blank">IEEE Women in Engineering (WIE)</a></p>
+        <p class="entry-sub"><strong>Chair</strong>, IEEE WIE Philippines</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-logo">
+        <img src="https://www.google.com/s2/favicons?domain=ust.edu.ph&sz=64" alt="UST"
+          onerror="this.outerHTML='<div class=\'logo-fallback\'>UST</div>'" />
+      </div>
+      <div class="entry-body">
+        <p class="entry-title"><a href="https://www.ust.edu.ph/" target="_blank">University of Santo Tomas</a></p>
+        <p class="entry-sub"><strong>Co-coordinator</strong>, Engineering Pre-Major Year Collaborative Program (EPYC), Faculty of Engineering</p>
+        <p class="entry-sub"><strong>Co-coordinator</strong>, Student Academic Advising and Other Services (SAAS), Faculty of Engineering</p>
+        <p class="entry-sub"><strong>Committee Head</strong>, Top Thomasian Engineering News (Top TEN), Faculty of Engineering</p>
+        <p class="entry-sub"><strong>e-Learning Specialist</strong>, Faculty of Engineering</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-logo">
+        <img src="https://www.google.com/s2/favicons?domain=ieee.org&sz=64" alt="IEEE"
+          onerror="this.outerHTML='<div class=\'logo-fallback\'>IEEE</div>'" />
+      </div>
+      <div class="entry-body">
+        <p class="entry-title"><a href="https://ieee.org/" target="_blank">Institute of Electrical and Electronics Engineers (IEEE)</a></p>
+      
